@@ -26,14 +26,6 @@ namespace PruebaNet8.Business.Services
 
         public async Task<Invoice> CreateInvoice(Invoice invoice)
         {
-            if (invoice.InvoiceDetailslist != null && invoice.InvoiceDetailslist.Any())
-            {
-                foreach (var detail in invoice.InvoiceDetailslist)
-                {
-                    _dbContext.InvoiceDetails.Add(detail);
-                }
-            }
-
             _dbContext.Invoices.Add(invoice);
             await _dbContext.SaveChangesAsync();
             return invoice;

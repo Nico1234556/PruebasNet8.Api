@@ -6,11 +6,11 @@ namespace PruebasNet8.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class invoiceController : ControllerBase
+    public class InvoiceController : ControllerBase
     {
         private readonly IInvoiceService _invoiceService;
 
-        public invoiceController(IInvoiceService invoiceService)
+        public InvoiceController(IInvoiceService invoiceService)
         {
             _invoiceService = invoiceService;
         }
