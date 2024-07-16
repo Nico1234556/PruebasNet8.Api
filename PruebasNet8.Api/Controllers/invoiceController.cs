@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PruebaNet8.Business.Interfaces;
 using PruebaNet8.Data.Models;
 
@@ -28,6 +29,13 @@ namespace PruebasNet8.Api.Controllers
             var newInvoice = await _invoiceService.CreateInvoice(invoice);
             return Ok(newInvoice);
         }
-
+        //FALTA PUT DELETE 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteInvoice(int id)
+        {
+           var invoice = await _invoiceService.GetInvoice(id);
+            await _invoiceService.DeleteInvoice(id);
+            return Ok();
+        }
     }
 }

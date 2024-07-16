@@ -28,6 +28,6 @@ namespace PruebasNet8.Api.Controllers
             var newInvoiceDetail = await _invoiceDetailService.CreateDetail(invoiceDetail);
             return Ok(newInvoiceDetail);
         }
-
+ 
     }
 }
