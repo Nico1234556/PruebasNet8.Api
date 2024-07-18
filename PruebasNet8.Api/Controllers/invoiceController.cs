@@ -29,7 +29,14 @@ namespace PruebasNet8.Api.Controllers
             var newInvoice = await _invoiceService.CreateInvoice(invoice);
             return Ok(newInvoice);
         }
-        //FALTA PUT DELETE 
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateInvoice(int id, [FromBody] Invoice invoice)
+        {
+           
+            var updatedInvoice = await _invoiceService.UpdateInvoice(invoice);
+            return Ok(updatedInvoice);
+        }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteInvoice(int id)
         {

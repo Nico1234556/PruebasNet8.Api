@@ -43,6 +43,13 @@ namespace PruebaNet8.Business.Services
             _dbContext.Entry(existingInvoice).CurrentValues.SetValues(invoice);
 
             _dbContext.InvoiceDetails.RemoveRange(existingInvoice.InvoiceDetailslist);
+            if (invoice.InvoiceDetailslist != null && invoice.InvoiceDetailslist.Any())
+            {
+                foreach (var detail in invoice.InvoiceDetailslist)
+                {
+                    _dbContext.InvoiceDetails.Add(detail);
+                }
+            }
 
             await _dbContext.SaveChangesAsync();
             return existingInvoice;
